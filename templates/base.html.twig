@@ -13,6 +13,9 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="row">
+            {% include 'sidebar.twig' %}
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>
