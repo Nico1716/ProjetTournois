@@ -27,6 +27,7 @@ body {
 .grid-header {
     grid-column: 3 / -1; /* spans all columns */
     grid-row: 1;
+    background: lightblue;
 }
 
 .grid-select {
