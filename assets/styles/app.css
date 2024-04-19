@@ -10,6 +10,24 @@ body {
     grid-template-columns: repeat(20, 1fr); /* Creates 7 rows of equal height */
 }
 
+.score-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center; /* Evenly space the boxes */
+    align-items: center; /* Center-align the boxes vertically */
+    padding: 20px; /* Add some padding around the container */
+  }
+
+.scorebox {
+    width: 150px; /* Each box takes up 20% of the container's width */
+    background-color: white; /* Green background for visibility */
+    color: black; /* White text color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px; /* Padding inside the boxes */
+    border-radius: 10px; /* Rounded corners */
+    margin: 10px 10px;
+  }
+
 .grid-sidebar-left {
     display: flex;            /* Flexbox layout */
     flex-direction: column;   /* Stack children vertically */
@@ -28,7 +46,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0.5rem 1rem;
     background-color: #f8f9fa; /* Light background color */
     border-bottom: 1px solid #dee2e6; /* Add a bottom border for separation */
