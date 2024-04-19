@@ -22,6 +22,21 @@ upcoming.addEventListener('click', function(){
   upcoming.classList.add('active');
 });
 
+// Initialization for ES Users
+import { Dropdown, Collapse, initMDB } from "mdb-ui-kit";
+
+initMDB({ Dropdown, Collapse });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+        dropdownToggle.addEventListener('click', function () {
+            // Scroll to the bottom of the dropdown menu
+            dropdownMenu.scrollTop = dropdownMenu.scrollHeight;
+        });
+    });
+
 
 
 
