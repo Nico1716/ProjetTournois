@@ -7,34 +7,49 @@ body {
 .grid-container {
     display: grid;
     grid-template-rows: repeat(7, 1fr); /* Creates 7 rows of equal height */
+    grid-template-columns: repeat(10, 1fr); /* Creates 7 rows of equal height */
     grid-gap: 10px; /* Optional: adds gap between rows and columns */
 }
+
+.grid-sidebar-left {
+    display: flex;            /* Flexbox layout */
+    flex-direction: column;   /* Stack children vertically */
+    flex-shrink: 0;           /* Prevent flex-shrink */
+    padding: 1rem;            /* Padding all around (16px if 1rem = 16px) */
+    color: white;             /* Text color */
+    background-color: #343a40;/* Dark background (similar to bg-dark) */
+    width: 280px;             /* Fixed width */
+    height: 100vh;            /* Full viewport height */
+    grid-column: 1 / 3;           /* Position in grid */
+    grid-row: 1 / -1;          /* Span specific rows */
+}
+
 .grid-header {
-    grid-column: 1 / -1; /* spans all columns */
+    grid-column: 3 / -1; /* spans all columns */
     grid-row: 1;
     background: lightblue;
 }
 
 .grid-nav {
-    grid-column: 1 / -1;
+    grid-column: 3 / -1;
     grid-row: 2;
     background: lightcoral;
 }
 
 .grid-main {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 3 / 6; /* spans rows 3 and 4 */
     background: lightgreen;
 }
 
 .grid-article {
-    grid-column: 1 / -1;
+    grid-column: 3 / -1;
     grid-row: 6;
     background: lightpink;
 }
 
 .grid-footer {
-    grid-column: 1 / -1;
+    grid-column: 3 / -1;
     grid-row: 7;
     background: lightsteelblue;
 }
