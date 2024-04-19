@@ -6,26 +6,13 @@ import './bootstrap.js';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-import './vendor/bootstrap/dist/css/bootstrap.min.css';
+//import './vendor/bootstrap/dist/css/bootstrap.min.css';
 
-
-let highlight = document.querySelector('#highlights-btn');
-let upcoming = document.querySelector('#upcoming-btn');
-
-highlight.addEventListener('click', function(){
-  highlight.classList.add('active');
-  upcoming.classList.remove('active');
-});
-
-upcoming.addEventListener('click', function(){
-  highlight.classList.remove('active');
-  upcoming.classList.add('active');
-});
+console.log('hello');
 
 
 
 
-/*
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.selector-button');
     buttons.forEach(btn => {
@@ -45,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('upcoming-content').style.display = 'block';
       }
     }
-  
+    switchContent("highlights-btn");
   });
-*/
- // switchContent(highlights-btn);
+
