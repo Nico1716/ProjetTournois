@@ -16,7 +16,7 @@ body {
     flex-direction: column;   /* Stack children vertically */
     flex-shrink: 0;           /* Prevent flex-shrink */
     padding: 1rem;            /* Padding all around (16px if 1rem = 16px) */
-    color: ;             /* Text color */
+    color: aqua;             /* Text color */
     background-color: aliceblue;/* Dark background (similar to bg-dark) */
     height: 100vh;            /* Full viewport height */
     grid-column: 1 / 5;           /* Position in grid */
