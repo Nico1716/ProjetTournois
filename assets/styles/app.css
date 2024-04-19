@@ -1,3 +1,66 @@
 body {
-    background-color: skyblue;
+    background-color: rgb(255, 255, 255);
 }
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(20, 1fr); /* Creates 7 rows of equal height */
+    grid-template-columns: repeat(20, 1fr); /* Creates 7 rows of equal height */
+    grid-gap: 10px; /* Optional: adds gap between rows and columns */
+}
+
+.grid-sidebar-left {
+    display: flex;            /* Flexbox layout */
+    flex-direction: column;   /* Stack children vertically */
+    flex-shrink: 0;           /* Prevent flex-shrink */
+    padding: 1rem;            /* Padding all around (16px if 1rem = 16px) */
+    color: white;             /* Text color */
+    background-color: #343a40;/* Dark background (similar to bg-dark) */
+    height: 100vh;            /* Full viewport height */
+    grid-column: 1 / 5;           /* Position in grid */
+    grid-row: 1 / -1;          /* Span specific rows */
+}
+
+.grid-header {
+    grid-column: 5 / -1; /* spans all columns */
+    grid-row: 1 / 4;
+    background: lightblue;
+}
+
+.grid-select {
+    grid-column: 5 / -1;
+    grid-row: 4;
+    background: orangered;
+}
+
+.grid-nav {
+    grid-column: 5 / -1;
+    grid-row: 5 / 7;
+    background: lightcoral;
+}
+
+
+.grid-main {
+    grid-column: 5 / 14;
+    grid-row: 7 / 20; /* spans rows 3 and 4 */
+    background: lightgreen;
+}
+
+.grid-article {
+    grid-column: 14 / -1;
+    grid-row: 7 / 20;
+    background: lightpink;
+}
+
+.grid-footer {
+    grid-column: 5 / -1;
+    grid-row: 20;
+    background: lightsteelblue;
+}
+
+
+
+.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
