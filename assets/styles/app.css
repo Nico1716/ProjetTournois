@@ -17,8 +17,8 @@ body {
     flex-direction: column;   /* Stack children vertically */
     flex-shrink: 0;           /* Prevent flex-shrink */
     padding: 1rem;            /* Padding all around (16px if 1rem = 16px) */
-    color: white;             /* Text color */
-    background-color: #343a40;/* Dark background (similar to bg-dark) */
+    color: aqua;             /* Text color */
+    background-color: aliceblue;/* Dark background (similar to bg-dark) */
     height: 100vh;            /* Full viewport height */
     grid-column: 1 / 5;           /* Position in grid */
     grid-row: 1 / -1;          /* Span specific rows */
@@ -35,6 +35,35 @@ body {
     grid-row: 4;
     background: orangered;
 }
+
+.selector-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333; /* Dark color for text */
+    background-color: #fff; /* White background */
+    border: none;
+    cursor: pointer;
+    position: relative; /* Needed to position the pseudo-element */
+    outline: none; /* Removes default focus outline */
+  }
+  
+  .selector-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #007BFF;
+    transition: width 0.3s;
+  }
+  
+  .selector-button:hover::after, .selector-button.active::after {
+    width: 100%; /* Full width blue strip on hover or active */
+  }
 
 .grid-nav {
     grid-column: 5 / -1;
