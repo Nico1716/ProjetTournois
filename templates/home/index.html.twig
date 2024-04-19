@@ -12,9 +12,13 @@
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/nico/Proj_Trans_Sport/ProjetTournois/ProjetTournois/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/Users/nico/Proj_Trans_Sport/ProjetTournois/ProjetTournois/templates/home/index.html.twig</code></li>
+    <ul class="nav nav-pills" role="tablist">
+     <li class="nav-item">
+       <a class="nav-link active" data-toggle="pill" href="#home">Highlights</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" data-toggle="pill" href="#menu1">Upcoming</a>
+     </li>
     </ul>
 </div>
 {% endblock %}
