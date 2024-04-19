@@ -9,6 +9,7 @@ body {
     grid-template-rows: repeat(20, 1fr); /* Creates 7 rows of equal height */
     grid-template-columns: repeat(20, 1fr); /* Creates 7 rows of equal height */
     grid-gap: 10px; /* Optional: adds gap between rows and columns */
+    height: 100vh
 }
 
 .grid-sidebar-left {
