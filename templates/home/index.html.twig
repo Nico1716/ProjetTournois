@@ -86,7 +86,7 @@
     </nav>    
     <main class="grid-main">
         <div id="highlights-content" style="display: none;">
-            <img src="{{ asset('images/tournament.svg') }}" alt="scoreboxes">
+            <img src="{{ asset('images/tournament.svg') }}" alt="tourney">
         </div>
         <div id="upcoming-content" style="display: none;">
             <h1>Upcoming</h1>
@@ -94,7 +94,20 @@
         </div>
         
     </main>
-    <article class="grid-article">Additional Content</article>
+    <article class="grid-article">
+        <div style="display: flex; justify-content: space-around">
+            
+                <img src="{{ asset('images/podium.svg') }}" alt="podium">
+            
+            
+                <button class="box bg-danger col-md-4">Regarder en direct</button>
+            
+        </div>
+        <div style="object-fit: contain; flex-grow: 1;">
+            <img src="{{ asset('images/other.svg') }}" alt="Other">
+        </div>
+        
+    </article>
     
     <footer class="grid-footer">Footer</footer>
 {% endblock %}

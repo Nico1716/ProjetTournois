@@ -21,7 +21,7 @@ body {
 
 .box {
     height: 60px; /* Each box takes up 20% of the container's width */
-    width:fit-content;
+    width:auto;
     color: white; /* White text color */
     text-align: center; /* Center the text horizontally */
     padding: 20px; /* Padding inside the boxes */
@@ -133,8 +133,10 @@ body {
 }
 
 .grid-article {
-    grid-column: 14 / -1;
-    grid-row: 8 / 20;
+    grid-column: 15 / -1;
+    grid-row: 10 / 20;
+    display: flex; /* Enable flexbox */
+    flex-direction: column;
 }
 
 .grid-footer {
