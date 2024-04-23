@@ -19,14 +19,29 @@ body {
     padding: 0; /* Add some padding around the container */
   }
 
-.scorebox {
-    width: 150px; /* Each box takes up 20% of the container's width */
+.box {
+    height: 60px; /* Each box takes up 20% of the container's width */
+    width:auto;
+    color: white; /* White text color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px; /* Padding inside the boxes */
+    border-radius: 30px; /* Rounded corners */
+    margin: 0;
+  }
+
+.sportbox {
+    height: 60px; /* Each box takes up 20% of the container's width */
     background-color: white; /* Green background for visibility */
     color: black; /* White text color */
     text-align: center; /* Center the text horizontally */
-    padding: 20px; /* Padding inside the boxes */
-    border-radius: 10px; /* Rounded corners */
-    margin: 0 10px;
+    align-items: center;
+    padding: 10px; /* Padding inside the boxes */
+    border-radius: 30px; /* Rounded corners */
+  }
+
+.sportbox:hover, .sportbox.active {
+    background-color: black; /* Green background for visibility */
+    color: white; /* White text color */
   }
 
 .grid-sidebar-left {
@@ -61,6 +76,22 @@ body {
     padding: 0 50px;
 }
 
+.input-group {
+    border-radius: 25px;
+    height: 50px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better visibility */
+}
+
+.input-group .form-control {
+    border-right: 1px solid #ccc;
+}
+
+.input-group .btn {
+    border: none;
+}
+
 .selector-button {
     display: block;
     width: 100%;
@@ -68,6 +99,7 @@ body {
     text-align: center;
     font-size: 1.5rem;
     color: #333; /* Dark color for text */
+    background-color: transparent;
     border: none;
     cursor: pointer;
     position: relative; /* Needed to position the pseudo-element */
@@ -92,26 +124,24 @@ body {
 .grid-nav {
     grid-column: 5 / -1;
     grid-row: 5 / 8;
-    background: lightcoral;
 }
 
 
 .grid-main {
     grid-column: 5 / 14;
-    grid-row: 8 / 20; /* spans rows 3 and 4 */
-    background: lightgreen;
+    grid-row: 9 / 20; /* spans rows 3 and 4 */
 }
 
 .grid-article {
-    grid-column: 14 / -1;
-    grid-row: 8 / 20;
-    background: lightpink;
+    grid-column: 15 / -1;
+    grid-row: 10 / 20;
+    display: flex; /* Enable flexbox */
+    flex-direction: column;
 }
 
 .grid-footer {
     grid-column: 5 / -1;
     grid-row: 20;
-    background: lightsteelblue;
 }
 
 

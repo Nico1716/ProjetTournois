@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('upcoming-content').style.display = 'block';
       }
     }
+
+    const sportButtons = document.querySelectorAll('.sportbox');
+    sportButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        sportButtons.forEach(b => b.classList.remove('active')); // Remove 'active' from all buttons
+        btn.classList.add('active'); // Add 'active' to the clicked button
+        
+      });
+    });
+
+
     switchContent("highlights-btn");
   });
 

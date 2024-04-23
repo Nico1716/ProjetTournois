@@ -8,28 +8,15 @@
     <header class="grid-header">
         <!-- Container wrapper -->
         
-        <div class="score-container">
-            <div class="scorebox">
-                2 | 0
-            </div>
-            <div class="scorebox">
-                2 | 0
-            </div>
-            <div class="scorebox">
-                2 | 0
-            </div>
-            <div class="scorebox">
-                2 | 0
-            </div>
-        </div>
+        <img src="{{ asset('images/scoreboxes.svg') }}" alt="scoreboxes">
         
         <!-- Right elements -->
         <div class="nav-item right-item">
             <div class="d-flex align-items-center">
             <!-- Avatar -->
                 <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-user"></i>
+                    <a href="#" class="d-flex align-items-center text-muted dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-regular fa-user text-capitalize px-2"></i>Jean Bombeurre
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -54,19 +41,73 @@
 
 
 
-    <nav class="grid-nav">Navigation</nav>    
+    <nav class="grid-nav">
+    
+        
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Search bar with input group -->
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+
+                    <button class="sportbox active" id="football-btn">
+                        <i class="fa-solid fa-futbol px-2"></i>Football
+                    </button>
+                
+
+                    <button class="sportbox" id="basket-btn">
+                        <i class="fa-solid fa-basketball px-2"></i>Basketball
+                    </button>
+                
+                
+
+                    <button class="sportbox" id="rugby-btn">
+                        <i class="fa-solid fa-football px-2"></i>Rugby
+                    </button>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-md-4">
+                    <button class="box bg-danger sticky-bottom">Regarder en direct</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="box bg-primary">+ Créer un tournoi</button>
+                </div>
+            </div>
+            
+
+    </nav>    
     <main class="grid-main">
         <div id="highlights-content" style="display: none;">
-        <h1>Highlights</h1>
-        <p>Details about highlights...</p>
+            <img src="{{ asset('images/tournament.svg') }}" alt="tourney">
         </div>
         <div id="upcoming-content" style="display: none;">
-        <h1>Upcoming</h1>
-        <p>Details about upcoming events...</p>
+            <h1>Upcoming</h1>
+            <p>Details about upcoming events...</p>
         </div>
         
     </main>
-    <article class="grid-article">Additional Content</article>
+    <article class="grid-article">
+        <div style="display: flex; justify-content: space-around">
+            
+                <img src="{{ asset('images/podium.svg') }}" alt="podium">
+            
+            
+                <button class="box bg-danger col-md-4">Regarder en direct</button>
+            
+        </div>
+        <div style="object-fit: contain; flex-grow: 1;">
+            <img src="{{ asset('images/other.svg') }}" alt="Other">
+        </div>
+        
+    </article>
     
     <footer class="grid-footer">Footer</footer>
 {% endblock %}
