@@ -19,14 +19,14 @@ body {
     padding: 0; /* Add some padding around the container */
   }
 
-.scorebox {
-    width: 150px; /* Each box takes up 20% of the container's width */
-    background-color: white; /* Green background for visibility */
-    color: black; /* White text color */
+.box {
+    height: 60px; /* Each box takes up 20% of the container's width */
+    width:fit-content;
+    color: white; /* White text color */
     text-align: center; /* Center the text horizontally */
     padding: 20px; /* Padding inside the boxes */
-    border-radius: 10px; /* Rounded corners */
-    margin: 0 10px;
+    border-radius: 30px; /* Rounded corners */
+    margin: 0;
   }
 
 .sportbox {
@@ -124,26 +124,22 @@ body {
 .grid-nav {
     grid-column: 5 / -1;
     grid-row: 5 / 8;
-    background: lightcoral;
 }
 
 
 .grid-main {
     grid-column: 5 / 14;
-    grid-row: 8 / 20; /* spans rows 3 and 4 */
-    background: lightgreen;
+    grid-row: 9 / 20; /* spans rows 3 and 4 */
 }
 
 .grid-article {
     grid-column: 14 / -1;
     grid-row: 8 / 20;
-    background: lightpink;
 }
 
 .grid-footer {
     grid-column: 5 / -1;
     grid-row: 20;
-    background: lightsteelblue;
 }
 
 
