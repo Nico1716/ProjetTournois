@@ -14,7 +14,35 @@ console.log('hello');
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+//document.addEventListener('DOMContentLoaded', function() {
+
+
+    // Data object containing categories and their sub-options
+    const categoryOptions = {
+      foot: ['Apple', 'Banana', 'Orange'],
+      basket: ['Carrot', 'Tomato', 'Celery'],
+      rugby: ['Laptop', 'Smartphone', 'Tablet']
+    };
+
+    // Function to update the second dropdown
+    function updateSubOptions(category) {
+      const secondSelect = document.getElementById('select-position');
+      secondSelect.innerHTML = ''; // Clear existing options
+      if (categoryOptions[category]) {
+          categoryOptions[category].forEach(item => {
+              const option = new Option(item, item);
+              secondSelect.add(option);
+          });
+      } else {
+          secondSelect.add(new Option('Position', ''));
+      }
+    }
+
+    // Event listener for the first select dropdown
+    document.getElementById('first-select').addEventListener('change', function() {
+      updateSubOptions(this.value);
+    });
+
     const buttons = document.querySelectorAll('.selector-button');
     buttons.forEach(btn => {
       btn.addEventListener('click', function() {
@@ -45,5 +73,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     switchContent("highlights-btn");
-  });
+//  });
 
