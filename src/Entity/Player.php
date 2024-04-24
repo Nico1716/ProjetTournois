@@ -5,7 +5,11 @@ namespace App\Entity;
 use App\Repository\PlayerRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
+
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: PlayerRepository::class)]
 class Player
 {
@@ -34,6 +38,14 @@ class Player
     #[ORM\Column]
     private ?int $player_position = null;
 
+    #[ORM\ManyToOne(inversedBy: 'players')]
+    private ?Sport $sport = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $firstName = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $lastName = null;
 
     public function getPlayerName(): ?string
     {
@@ -118,6 +130,44 @@ class Player
 
         return $this;
     }
+
+    public function getSport(): ?Sport
+    {
+        return $this->sport;
+    }
+
+    public function setSport(?Sport $sport): static
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): static
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): static
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    
 
    
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TournamentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,20 @@ class Tournament
 
     #[ORM\Column(length: 100)]
     private ?string $status = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sports')]
+    private ?Sport $sport = null;
+
+    /**
+     * @var Collection<int, Team>
+     */
+    #[ORM\ManyToMany(targetEntity: Team::class, inversedBy: 'teams')]
+    private Collection $team;
+
+    public function __construct()
+    {
+        $this->team = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +121,42 @@ class Tournament
     public function setStatus(string $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getSport(): ?Sport
+    {
+        return $this->sport;
+    }
+
+    public function setSport(?Sport $sport): static
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Team>
+     */
+    public function getTeam(): Collection
+    {
+        return $this->team;
+    }
+
+    public function addTeam(Team $team): static
+    {
+        if (!$this->team->contains($team)) {
+            $this->team->add($team);
+        }
+
+        return $this;
+    }
+
+    public function removeTeam(Team $team): static
+    {
+        $this->team->removeElement($team);
 
         return $this;
     }
