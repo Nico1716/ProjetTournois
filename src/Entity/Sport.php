@@ -27,8 +27,7 @@ class Sport
     /**
      * @var Collection<int, Player>
      */
-    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'sport')]
-    private Collection $players;
+
 
     /**
      * @var Collection<int, Ranking>
@@ -36,10 +35,16 @@ class Sport
     #[ORM\OneToMany(targetEntity: Ranking::class, mappedBy: 'sport')]
     private Collection $rankings;
 
+    /**
+     * @var Collection<int, Player>
+     */
+    #[ORM\ManyToMany(targetEntity: Player::class, mappedBy: 'sport')]
+    private Collection $players;
+
     public function __construct()
     {
         $this->sports = new ArrayCollection();
-        $this->players = new ArrayCollection();
+        //$this->players = new ArrayCollection();
         $this->rankings = new ArrayCollection();
     }
 
@@ -93,32 +98,9 @@ class Sport
     /**
      * @return Collection<int, Player>
      */
-    public function getPlayers(): Collection
-    {
-        return $this->players;
-    }
+   
 
-    public function addPlayer(Player $player): static
-    {
-        if (!$this->players->contains($player)) {
-            $this->players->add($player);
-            $player->setSport($this);
-        }
 
-        return $this;
-    }
-
-    public function removePlayer(Player $player): static
-    {
-        if ($this->players->removeElement($player)) {
-            // set the owning side to null (unless already changed)
-            if ($player->getSport() === $this) {
-                $player->setSport(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Ranking>
@@ -145,6 +127,37 @@ class Sport
             if ($ranking->getSport() === $this) {
                 $ranking->setSport(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function __toString() {
+        return $this->getSportName();
+    }
+
+    /**
+     * @return Collection<int, Player>
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): static
+    {
+        if (!$this->players->contains($player)) {
+            $this->players->add($player);
+            $player->addSport($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): static
+    {
+        if ($this->players->removeElement($player)) {
+            $player->removeSport($this);
         }
 
         return $this;

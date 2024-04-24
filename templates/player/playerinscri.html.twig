@@ -1,37 +1,52 @@
+{% extends 'base.html.twig' %} {% block body %}
+<h1>Création d'une nouvelle équipe</h1>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">
-    <title>Document</title>
-</head>
-
-<body>
+<form action="{{ path('app_player_new') }}" method="post">
     <div class="row">
-        {% for personna in personne %}
-        <div class="card col-3">
-            <div class="card-body">
-                <h4 class="card-title">{{ personna.firstName }}</h4>
-                <p class="card-text">{{ personna.firstName}} {{ personna.lastName }}</p>
-                <p class="card-text">{{ personna.age }}</p>
-                <a href="{{ path('personne_detail',{id : personna.id}) }}" class="card-link">Détails</a>
-            </div>
+        <div class="col-6">
+            Nom
         </div>
-        {% endfor %}
-
+        <div class="col-6">
+            {{ form_widget(form.firstName) }} {{ form_errors(form.firstName) }}
+        </div>
     </div>
-    <!-- <div class="d-flex justify-content-between">
-        {% if (pcrnt > 1) %} <a href="{{ path('personne_list.limites', {'pcrnt' : pcrnt-1}) }}" class="btn btn-primary">Previous</a> {% endif %} {% if (pcrnt
-        < pagesMax) %} <a href="{{ path('personne_list.limites' , {'pcrnt' : pcrnt+1} )}}" class="btn btn-secondary">Next</a>
-
-            {% endif %}
-    </div>-->
-    <!-- {{ knp_pagination_render(personne) }}-->
-
-    {{ knp_pagination_render(personne) }}
-</body>
-
-</html>
+    <div class="row">
+        <div class="col-6">
+            Date de création
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.lastName) }} {{ form_errors(form.lastName) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Couleur du maillot
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.age) }} {{ form_errors(form.age) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Origine
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.height) }} {{ form_errors(form.height) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Nombre de joueurs
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.weight) }} {{ form_errors(form.weight) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{ form_widget(form._token) }}
+            <button type="submit" class="btn btn-primary float-right">Valider</button>
+        </div>
+    </div>
+</form>
+{% endblock %} {% block title %} {% endblock %}
