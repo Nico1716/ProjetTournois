@@ -17,9 +17,6 @@ class Player
     #[ORM\GeneratedValue]
    
 
-    #[ORM\Column(length: 100)]
-    private ?string $player_name = null;
-
     #[ORM\Column]
     private ?int $age = null;
 
@@ -41,23 +38,6 @@ class Player
     #[ORM\ManyToOne(inversedBy: 'players')]
     private ?Sport $sport = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $firstName = null;
-
-    #[ORM\Column(length: 100)]
-    private ?string $lastName = null;
-
-    public function getPlayerName(): ?string
-    {
-        return $this->player_name;
-    }
-
-    public function setPlayerName(string $player_name): static
-    {
-        $this->player_name = $player_name;
-
-        return $this;
-    }
 
     public function getAge(): ?int
     {
@@ -141,33 +121,7 @@ class Player
         $this->sport = $sport;
 
         return $this;
-    }
-
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
-    }
-
-    public function setFirstName(string $firstName): static
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    public function setLastName(string $lastName): static
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    
+    }   
 
    
 }
