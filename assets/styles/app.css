@@ -53,7 +53,7 @@ body {
     background-color: aliceblue;/* Dark background (similar to bg-dark) */
     height: 100vh;            /* Full viewport height */
     grid-column: 1 / 5;           /* Position in grid */
-    grid-row: 1 / -1;          /* Span specific rows */
+    grid-row: 1 / 20;          /* Span specific rows */
 }
 
 .grid-header {
@@ -123,8 +123,9 @@ body {
 
 .grid-nav {
     grid-column: 6 / 20;
-    grid-row: 5 / 8;
+    grid-row: 5 / 9;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 
@@ -147,8 +148,8 @@ body {
 }
 
 .grid-footer {
-    grid-column: 5 / -1;
-    grid-row: 20;
+    grid-column: 1 / -1;
+    grid-row: -1;
 }
 
 .rounded-bar {
@@ -156,6 +157,8 @@ body {
     border-radius: 35px;
     background-color: white; /* Green background for visibility */
     display: flex; /* Enable flexbox */
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    padding: 5px 5px;
 }

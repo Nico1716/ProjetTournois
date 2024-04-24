@@ -14,34 +14,20 @@ console.log('hello');
 
 
 
-//document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('loaded');
+  var pathname = window.location.pathname;
+  const categoryOptions = {
+    foot: ['Apple', 'Banana', 'Orange'],
+    basket: ['Carrot', 'Tomato', 'Celery'],
+    rugby: ['Laptop', 'Smartphone', 'Tablet']
+  };
 
 
-    // Data object containing categories and their sub-options
-    const categoryOptions = {
-      foot: ['Apple', 'Banana', 'Orange'],
-      basket: ['Carrot', 'Tomato', 'Celery'],
-      rugby: ['Laptop', 'Smartphone', 'Tablet']
-    };
-
-    // Function to update the second dropdown
-    function updateSubOptions(category) {
-      const secondSelect = document.getElementById('select-position');
-      secondSelect.innerHTML = ''; // Clear existing options
-      if (categoryOptions[category]) {
-          categoryOptions[category].forEach(item => {
-              const option = new Option(item, item);
-              secondSelect.add(option);
-          });
-      } else {
-          secondSelect.add(new Option('Position', ''));
-      }
-    }
-
-    // Event listener for the first select dropdown
-    document.getElementById('first-select').addEventListener('change', function() {
-      updateSubOptions(this.value);
-    });
+  if (pathname === "/") {
+    console.log('bruh');
+    
+    
 
     const buttons = document.querySelectorAll('.selector-button');
     buttons.forEach(btn => {
@@ -51,6 +37,7 @@ console.log('hello');
         switchContent(btn.id);
       });
     });
+    
   
     function switchContent(buttonId) {
       if (buttonId === 'highlights-btn') {
@@ -73,5 +60,33 @@ console.log('hello');
 
 
     switchContent("highlights-btn");
-//  });
+  }
+  
+  if (pathname.match(/player/)) {
+    console.log('player');
+    // Event listener for the first select dropdown
+    document.getElementById('first-select').addEventListener('change', function() {
+      updateSubOptions(this.value);
+    });
+    // Function to update the second dropdown
+    function updateSubOptions(category) {
+      const secondSelect = document.getElementById('select-position');
+      secondSelect.innerHTML = ''; // Clear existing options
+      if (categoryOptions[category]) {
+          categoryOptions[category].forEach(item => {
+              const option = new Option(item, item);
+              secondSelect.add(option);
+          });
+      } else {
+          secondSelect.add(new Option('Position', ''));
+      }
+    }
+  }
+  
+
+    // Data object containing categories and their sub-options
+    
+
+    
+  });
 
