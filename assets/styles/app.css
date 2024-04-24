@@ -137,6 +137,7 @@ body {
     grid-row: 10 / 20;
     display: flex; /* Enable flexbox */
     flex-direction: column;
+    overflow: hidden;
 }
 
 .grid-footer {
