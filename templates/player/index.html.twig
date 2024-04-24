@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PlayerController!{% endblock %}
+{% block title %} {{ parent() }} Player{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<header class="grid-header">
+</header>
+<nav class="grid-nav">
+    <h2>Ajouter un nouveau joueur</h2>
+    <div class="rounded-bar">
+        <div class="box bg-primary">1 • Informations du candidat</div>
+        <div class="box text-muted">2 • Choisir l'équipe</div>
+        <div class="box text-muted">3 • Tournois</div>
+        <div class="box text-muted">4 • Info Lieu ?</div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>D:/School/epsi/L2/Projet_TRANS/ProjetTournois/src/Controller/PlayerController.php</code></li>
-        <li>Your template at <code>D:/School/epsi/L2/Projet_TRANS/ProjetTournois/templates/player/index.html.twig</code></li>
-    </ul>
-</div>
+</nav>
+<main class="grid-content">
+    <h1>Coucou</h1>
+</main>
+
+
 {% endblock %}

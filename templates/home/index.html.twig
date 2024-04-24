@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %} {{ parent() }} Home{% endblock %}
 
 {% block body %}
 
@@ -97,11 +97,11 @@
     <article class="grid-article">
         <div style="display: flex; justify-content: space-around">
             
-                <img src="{{ asset('images/podium.svg') }}" alt="podium">
-            
-            
-                <button class="box bg-danger">Regarder en direct</button>
-            
+            <img src="{{ asset('images/podium.svg') }}" alt="podium">
+        
+        
+            <button class="box bg-danger">Suivre les scores</button>
+        
         </div>
         <div style="object-fit: cover; flex-grow: 1; display: block; height: 100%;">
             <img src="{{ asset('images/other.svg') }}" alt="Other">

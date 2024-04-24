@@ -65,7 +65,7 @@ body {
     justify-content: space-around;
     padding: 0.5rem 1rem;
     background-color: #f8f9fa; /* Light background color */
-    border-bottom: 1px solid #dee2e6; /* Add a bottom border for separation */
+    border-bottom: 1px solid lightgrey; /* Add a bottom border for separation */
   
 }
 
@@ -122,13 +122,19 @@ body {
 }
 
 .grid-nav {
-    grid-column: 5 / -1;
+    grid-column: 6 / 20;
     grid-row: 5 / 8;
+    justify-content: space-between;
 }
 
 
 .grid-main {
     grid-column: 5 / 14;
+    grid-row: 9 / 20; /* spans rows 3 and 4 */
+}
+
+.grid-content {
+    grid-column: 5 / -1;
     grid-row: 9 / 20; /* spans rows 3 and 4 */
 }
 
@@ -145,4 +151,11 @@ body {
     grid-row: 20;
 }
 
-
+.rounded-bar {
+    height: 70px;
+    border-radius: 35px;
+    background-color: white; /* Green background for visibility */
+    display: flex; /* Enable flexbox */
+    flex-direction: row;
+    justify-content: space-between;
+}
