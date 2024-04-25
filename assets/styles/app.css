@@ -141,7 +141,7 @@ body {
 
 .grid-article {
     grid-column: 15 / -1;
-    grid-row: 10 / 20;
+    grid-row: 12 / 20;
     display: flex; /* Enable flexbox */
     flex-direction: column;
     overflow: hidden;
@@ -161,4 +161,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
     padding: 5px 5px;
+}
+
+
+.grid-podium {
+    grid-column: 15 / -1;
+    grid-row: 9 / 12;
+    display: flex; /* Enable flexbox */
+    flex-direction: row;
+    justify-content: space-around
 }
