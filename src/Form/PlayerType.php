@@ -25,7 +25,7 @@ class PlayerType extends AbstractType
             
             ->add('sport', EntityType::class, [
                 'class' => Sport::class,
-                'choice_label' => 'id',
+                'choice_label' => 'sportName',
                 'multiple' => true,
             ])
             ->add('player_position')

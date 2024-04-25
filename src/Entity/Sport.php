@@ -44,7 +44,7 @@ class Sport
     public function __construct()
     {
         $this->sports = new ArrayCollection();
-        //$this->players = new ArrayCollection();
+        $this->players = new ArrayCollection();
         $this->rankings = new ArrayCollection();
     }
 
@@ -132,9 +132,6 @@ class Sport
         return $this;
     }
 
-    public function __toString() {
-        return $this->getSportName();
-    }
 
     /**
      * @return Collection<int, Player>
@@ -162,4 +159,10 @@ class Sport
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->getSportName();
+        
+    }  
+    
 }

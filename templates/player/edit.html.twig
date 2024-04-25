@@ -1,23 +1,14 @@
-{% extends 'base.html.twig' %} {% block body %}
+{% extends 'base.html.twig' %}
+{% set page = 'team' %}
 
+{% block title %}Modification d'un joueur{% endblock %}
+
+{% block body %}
 <div class="grid-content">
-    <h1>Création d'une nouveau joueur</h1>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">Symfony - Feuille de Match</span>
-        </a>
+    <h1>Modification d'un joueur</h1>
 
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ path('app_home') }}" class="nav-link{% if page is defined and page == 'home'%} active{% endif %}" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="{{ path('app_player_new') }}" class="nav-link{% if page is defined and page == 'team'%} active{% endif %}" aria-current="page">Equipes</a></li>
-
-        </ul>
-    </header>
-
-
-    <form action="{{ path('app_player_new') }}" method="post">
-        <div class="row">
+    <form action="{{ path('app_player_edit', {'id': player.id}) }}" method="post">
+         <div class="row">
             <div class="col-6">
                 Nom
             </div>
@@ -97,4 +88,4 @@
         </div>
     </form>
 </div>
-{% endblock %} {% block title %} {% endblock %}
+{% endblock %}

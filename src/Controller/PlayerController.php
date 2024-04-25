@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Player;
+use App\Entity\Sport;
 use App\Form\PlayerType;
+use App\Repository\PlayerRepository;
+use App\Repository\SportRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,10 +17,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class PlayerController extends AbstractController
 {
     #[Route('/', name: 'app_player')]
-    public function index(): Response
+    public function index(PlayerRepository $playerRepository): Response
     {
-        return $this->render('player/index.html.twig', [
-            'controller_name' => 'PlayerController',
+        $players = $playerRepository->findAll();
+        return $this->render('player/vis.html.twig', [
+            'players' => $players,
         ]);
     }
     #[Route('/player/allPlayer', name: 'app_find_player')]
@@ -50,11 +54,12 @@ class PlayerController extends AbstractController
      }
 
      #[Route('/new', name: 'app_player_new', methods: ['GET', 'POST'])]
-     public function new(Request $request, EntityManagerInterface $entityManager): Response
+     public function new(Request $request, EntityManagerInterface $entityManager, SportRepository $sportRepository): Response
      {
          $ply = new Player();
          $form = $this->createForm(PlayerType::class, $ply);
          $form->handleRequest($request);
+       
  
          if ($form->isSubmitted() && $form->isValid()) {
              $entityManager->persist($ply);
@@ -62,10 +67,44 @@ class PlayerController extends AbstractController
  
              return $this->redirectToRoute('app_home');
          }
- 
+         $sports = $entityManager->getRepository(Sport::class)->findAll();
          return $this->render('player/playerinscri.html.twig', [
              'form' => $form->createView(),
+             'sports' => $sports, // Passer les sports au template
          ]);
      }
+    #[Route('/player/{id}/edit', name: 'app_player_edit', methods: ['GET', 'POST'])]
+    public function edit(Player $ply, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(PlayerType::class, $ply);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($ply);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('player/edit.html.twig', [
+            'player' => $ply,
+            'form' => $form->createView(),
+        ]);
+    }
+    #[Route('/player/{id}/delete', name: 'app_player_delete', methods: ['GET', 'POST'])]
+    public function delete(Player $ply, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('remove-player-'.$ply->getId(), $request->get('_token'))) {
+            $entityManager->remove($ply);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_home');
+    }
+
+    
+
+
+     
  
 }
