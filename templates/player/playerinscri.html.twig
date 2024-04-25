@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %} {% block body %}
 
 <div class="grid-content">
-    <h1>Création d'une nouveau joueur</h1>
+    <h1>Création d'un nouveau joueur</h1>
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">Symfony - Feuille de Match</span>
+            <span class="fs-4">Ajout des Joueurs du tournois</span>
         </a>
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="{{ path('app_home') }}" class="nav-link{% if page is defined and page == 'home'%} active{% endif %}" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="{{ path('app_player_new') }}" class="nav-link{% if page is defined and page == 'team'%} active{% endif %}" aria-current="page">Equipes</a></li>
-
+            <li class="nav-item"><a href="{{ path('app_player') }}" class="nav-link{% if page is defined and page == 'player'%} active{% endif %}" aria-current="page">Liste des Joueurs</a></li>
         </ul>
     </header>
 
