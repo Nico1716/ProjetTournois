@@ -4,8 +4,21 @@
 {% block title %}Modification d'un joueur{% endblock %}
 
 {% block body %}
+
+<header class="grid-header">
+</header>
+<nav class="grid-nav">
+    <h2>Gestion des joueurs</h2>
+    <div class="rounded-bar">
+        <div class="box text-muted">1 • Liste des joueurs</div>
+        <div class="box text-muted">2 • Créer un joueur</div>
+        <div class="box bg-primary">3 • Modifier un joueur</div>
+        <div class="box text-muted">4 • Équipes</div>
+    </div>
+</nav>
+
 <div class="grid-content">
-    <h1>Modification d'un joueur</h1>
+
 
     <form action="{{ path('app_player_edit', {'id': player.id}) }}" method="post">
          <div class="row">

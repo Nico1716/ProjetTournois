@@ -18,10 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('loaded');
   var pathname = window.location.pathname;
   const categoryOptions = {
-    foot: ['Apple', 'Banana', 'Orange'],
-    basket: ['Carrot', 'Tomato', 'Celery'],
-    rugby: ['Laptop', 'Smartphone', 'Tablet']
+    foot: ["Avant", "Milieu de terrain", "Défenseur", "Gardien de but"],
+    basket: ["Meneur", "Arrière", "Ailier", "Ailier fort", "Pivot"],
+    rugby: ["Avant", "Deuxième ligne", "Troisième ligne", "Demi de mêlée", "Demi d'ouverture", "Centre", "Ailier", "Arrière"]
   };
+
 
 
   if (pathname === "/") {
@@ -84,9 +85,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
 
-    // Data object containing categories and their sub-options
-    
-
-    
   });
 

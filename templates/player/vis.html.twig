@@ -3,25 +3,38 @@
 {% block title %}Page de démarrage{% endblock %}
 
 {% block body %}
-<div class="grid-content">
-    <h1>Liste des joueurs </h1>
 
-    <table>
+
+<header class="grid-header">
+</header>
+<nav class="grid-nav">
+    <h2>Gestion des joueurs</h2>
+    <div class="rounded-bar">
+        <div class="box bg-primary">1 • Liste des joueurs</div>
+        <div class="box text-muted">2 • Créer un joueur</div>
+        <div class="box text-muted">3 • Modifier un joueur</div>
+        <div class="box text-muted">4 • Équipes</div>
+    </div>
+</nav>
+<div class="grid-content">
+
+    <table class="table">
         <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Age</th>
-            <th>Taille</th>
-            <th>Poids</th>
-            <th>Nationalité</th>
-            <th>Sport</th>
-            <th>Mallot</th>
-            <th>Poste</th>
-        </tr>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Âge</th>
+                <th>Taille</th>
+                <th>Poids</th>
+                <th>Nationalité</th>
+                <th>Sport</th>
+                <th>Maillot</th>
+                <th>Poste</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-        {% for player in players %}
+            {% for player in players %}
             <tr>
                 <td>{{ player.firstName }}</td>
                 <td>{{ player.lastName }}</td>
@@ -30,28 +43,25 @@
                 <td>{{ player.weight }}</td>
                 <td>{{ player.nationality }}</td>
                 <td>
-                        {% for sport in player.sport %}
-                            {{ sport.sportName }}
-                            {% if not loop.last %}, {% endif %}
-                        {% endfor %}
+                    {% for sport in player.sport %}
+                    {{ sport.sportName }}
+                    {% if not loop.last %}, {% endif %}
+                    {% endfor %}
                 </td>
-                <td> {{ player.getPlayerNum() }} </td>
-                <td> {{ player.getPlayerPosition() }} </td>
-               
+                <td>{{ player.getPlayerNum() }}</td>
+                <td>{{ player.getPlayerPosition() }}</td>
                 <td>
                     <a href="{{ path('app_player_edit', {'id': player.id}) }}" class="btn btn-primary">Modifier</a>
-                </td>
-                <td>
-                    <form action="{{ path('app_player_delete', {'id': player.id}) }}" method="post">
+                    <form action="{{ path('app_player_delete', {'id': player.id}) }}" method="post" style="display: inline;">
                         <input type="hidden" name="_token" value="{{ csrf_token('remove-player-'~player.id) }}">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
                 </td>
-
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
+
 
     <a href="{{ path('app_player_new') }}" class="float-right btn btn-primary">Nouveau Joueur</a>
 </div>
