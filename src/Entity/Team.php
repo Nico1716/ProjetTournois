@@ -39,11 +39,21 @@ class Team
     #[ORM\OneToMany(targetEntity: Phase::class, mappedBy: 'team')]
     private Collection $phases;
 
+    #[ORM\ManyToOne(inversedBy: 'teams')]
+    private ?Player $player = null;
+
+    /**
+     * @var Collection<int, Point>
+     */
+    #[ORM\OneToMany(targetEntity: Point::class, mappedBy: 'team')]
+    private Collection $point;
+
     public function __construct()
     {
         $this->teams = new ArrayCollection();
         $this->scores = new ArrayCollection();
         $this->phases = new ArrayCollection();
+        $this->point = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +166,48 @@ class Team
             // set the owning side to null (unless already changed)
             if ($phase->getTeam() === $this) {
                 $phase->setTeam(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPlayer(): ?Player
+    {
+        return $this->player;
+    }
+
+    public function setPlayer(?Player $player): static
+    {
+        $this->player = $player;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Point>
+     */
+    public function getPoint(): Collection
+    {
+        return $this->point;
+    }
+
+    public function addPoint(Point $point): static
+    {
+        if (!$this->point->contains($point)) {
+            $this->point->add($point);
+            $point->setTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removePoint(Point $point): static
+    {
+        if ($this->point->removeElement($point)) {
+            // set the owning side to null (unless already changed)
+            if ($point->getTeam() === $this) {
+                $point->setTeam(null);
             }
         }
 
