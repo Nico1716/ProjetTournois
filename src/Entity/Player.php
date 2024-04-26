@@ -45,9 +45,16 @@ class Player
     #[ORM\Column(length : 100)]
     private ?string $player_position = null;
 
+    /**
+     * @var Collection<int, Team>
+     */
+    #[ORM\OneToMany(targetEntity: Team::class, mappedBy: 'player')]
+    private Collection $teams;
+
     public function __construct()
     {
         $this->sport = new ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -171,6 +178,36 @@ class Player
     public function setPlayerPosition(string $player_position): static
     {
         $this->player_position = $player_position;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Team>
+     */
+    public function getTeams(): Collection
+    {
+        return $this->teams;
+    }
+
+    public function addTeam(Team $team): static
+    {
+        if (!$this->teams->contains($team)) {
+            $this->teams->add($team);
+            $team->setPlayer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTeam(Team $team): static
+    {
+        if ($this->teams->removeElement($team)) {
+            // set the owning side to null (unless already changed)
+            if ($team->getPlayer() === $this) {
+                $team->setPlayer(null);
+            }
+        }
 
         return $this;
     }
